@@ -1,6 +1,6 @@
 import { google } from 'googleapis';
 
-const oauth2Client = new google.auth.OAuth2('YOUR_CLIENT_ID', 'YOUR_CLIENT_SECRET', 'http://localhost:3000/api/auth/callback');
+const oauth2Client = new google.auth.OAuth2(process.env.GOOGLE_CLIENT_ID, process.env.GOOGLE_CLIENT_SECRET, 'http://localhost:3000/api/auth/callback');
 
 export default async function handler(req, res) {
   const { code } = req.query;

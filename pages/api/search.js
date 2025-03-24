@@ -10,7 +10,7 @@ export default async function handler(req, res) {
   try {
     const response = await axios.get('https://api.unsplash.com/search/photos', {
       params: { query, per_page: 5, orientation: 'portrait' },
-      headers: { Authorization: 'Client-ID YOUR_UNSPLASH_API_KEY' },
+      headers: { Authorization: `Client-ID ${process.env.NEXT_PUBLIC_UNSPLASH_API_KEY}` },
     });
     const images = await Promise.all(
       response.data.results.map(async (result, i) => {
